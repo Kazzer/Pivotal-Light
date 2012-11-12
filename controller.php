@@ -1,4 +1,5 @@
 <?php
+set_time_limit(0);
 function getGuid() {
   return loadDoc(doCurl("https://www.pivotaltracker.com/services/v3/tokens/active", "POST", array('username'=>$_POST['uname'], 'password'=>$_POST['pword'])))->getElementsByTagName('guid')->item(0)->nodeValue;
 }
