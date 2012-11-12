@@ -34,8 +34,6 @@ if (isset($_POST['logout'])) {
   </head>
   <body>
     <h1>Pivotal Light</h1>
-    <script src="http://code.jquery.com/jquery-latest.js" />
-    <script src="js/bootstrap.min.js" />
 <?php
 date_default_timezone_set('America/Toronto');
 if (!isset($_SESSION['guid'])) {
