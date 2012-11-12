@@ -12,7 +12,6 @@ if (isset($_POST['logout'])) {
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
   <head>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
     <style>
       body {
         margin: 0.625em;
