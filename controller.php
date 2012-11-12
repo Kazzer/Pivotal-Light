@@ -19,7 +19,7 @@ function getProjects() {
 ?>
         </select>
       </label>
-      <input type="submit" value="Load" />
+      <input class="noscript" type="submit" value="Load" />
     </form>
     <hr />
 <?php

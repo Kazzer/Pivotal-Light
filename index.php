@@ -27,6 +27,9 @@ if (isset($_POST['logout'])) {
         font-weight: bold;
       }
     </style>
+    <script type="application/x-javascript">
+      document.write('<style type="text/css">form input.noscript { display: none; }</style>');
+    </script>
     <title>Pivotal Light</title>
   </head>
   <body>
