@@ -12,20 +12,7 @@ if (isset($_POST['logout'])) {
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
   <head>
-    <style>
-      body {
-        margin: 0.625em;
-      }
-      td.rejected {
-        background-color: #FF0000;
-      }
-      tr.started {
-        background-color: #00FF00;
-      }
-      tr.bug {
-        font-weight: bold;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" media="screen" href="pings/style.css" />
     <script type="application/x-javascript">
       document.write('<style type="text/css">form input.noscript { display: none; }</style>');
     </script>
