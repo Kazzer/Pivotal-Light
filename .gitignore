@@ -1,4 +1,4 @@
 # Project backup files
-.php~
-.css~
-.js~
+*.php~
+*.css~
+*.js~
