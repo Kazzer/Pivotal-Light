@@ -1,9 +1,4 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-
-# Project property files
-.actionScriptProperties
-.flexProperties
-.settings/
-.project
+# Project backup files
+.php~
+.css~
+.js~
