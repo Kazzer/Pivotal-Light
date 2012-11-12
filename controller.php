@@ -91,7 +91,7 @@ function getStories($projectId) {
 ?>
       <tr class="<?php echo $currentState; ?>">
         <td><?php echo $storyId; ?></td>
-        <td><?php echo $story->getElementsByTagName('name')->item(0)->nodeValue; ?></td>
+        <td><?php echo str_replace("&", "&amp;", $story->getElementsByTagName('name')->item(0)->nodeValue); ?></td>
         <td><?php echo $estimate; ?></td>
 <?php
       getStoryActivity($projectId, $storyId);
