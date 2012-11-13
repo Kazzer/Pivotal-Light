@@ -82,7 +82,7 @@ function getStories($projectId) {
 <?php
     foreach (loadDoc(doCurl("http://www.pivotaltracker.com/services/v3/projects/".$projectId."/stories?filter=".((!isset($_GET['label'])) ? ('label:[sprint1]') : ('label:'.$_GET['label'])), "GET", null))->getElementsByTagName('story') as $story) {
       $storyId = $story->getElementsByTagName('id')->item(0)->nodeValue;
-      $estimate = $story->getElementsByTagName('estimate')->item(0)->nodeValue;
+      $estimate = (($story->getElementsByTagName('estimate')->length > 0) ? ($story->getElementsByTagName('estimate')->item(0)->nodeValue) : (null));
       $currentState = $story->getElementsByTagName('current_state')->item(0)->nodeValue;
       if ($estimate == null) {
         $currentState .= ' bug';
