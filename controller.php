@@ -5,7 +5,7 @@ function getGuid() {
 }
 function getProjects() {
   $urlProjectId = ((isset($_GET['project_id'])) ? ($_GET['project_id']) : (null));
-  foreach (loadDoc(doCurl("http://www.pivotaltracker.com/services/v4/projects", "GET", $_SESSION['guid']))->getElementsByTagName('project') as $project) {
+  foreach (loadDoc(doCurl("http://www.pivotaltracker.com/services/v4/projects", "GET", null))->getElementsByTagName('project') as $project) {
     $projectId = $project->getElementsByTagName('id')->item(0)->nodeValue;
     $selected = '';
     if ($projectId == $urlProjectId) {
