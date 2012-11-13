@@ -82,11 +82,15 @@ function getStories($projectId) {
 <?php
     foreach (loadDoc(doCurl("http://www.pivotaltracker.com/services/v3/projects/".$projectId."/stories?filter=".((!isset($_GET['label'])) ? ('label:[sprint1]') : ('label:'.$_GET['label'])), "GET", null))->getElementsByTagName('story') as $story) {
       $storyId = $story->getElementsByTagName('id')->item(0)->nodeValue;
-      $estimate = (($story->getElementsByTagName('estimate')->length > 0) ? ($story->getElementsByTagName('estimate')->item(0)->nodeValue) : (null));
+      $estimate = (($story->getElementsByTagName('estimate')->length > 0) ? ($story->getElementsByTagName('estimate')->item(0)->nodeValue) : ($story->getElementsByTagName('story_type')->item(0)->nodeValue));
       $currentState = $story->getElementsByTagName('current_state')->item(0)->nodeValue;
-      if ($estimate == null) {
-        $currentState .= ' bug';
+      if ($estimate == "bug") {
+        $currentState .= " bug";
         $estimate = "BUG";
+      }
+      elseif ($estimate == "chore") {
+        $currentState .= " chore";
+        $estimate = "CHORE";
       }
 ?>
       <tr class="<?php echo $currentState; ?>">
