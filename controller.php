@@ -28,8 +28,15 @@ function getProjects() {
     <h3><?php echo $urlProjectName; ?></h3>
     <p>
 <?php
-    // TODO: Change < 10 to a real number based on some criterion
-    for ($i = 1; $i < 10; $i++) {
+    $label = strtok(loadDoc(doCurl("http://www.pivotaltracker.com/services/v4/projects/".$urlProjectId, "GET", null))->getElementsByTagName('labels')->item(0)->nodeValue, ',');
+    $count = 0;
+    while ($label !== false) {
+      if (strpos($label, "[sprint") !== false) {
+        $count = (($count < intval(substr($label, 7, -1))) ? (intval(substr($label, 7, -1))) : ($count));
+      }
+      $label = strtok(',');
+    }
+    for ($i = 1; $i < $count+1; $i++) {
 ?>
       | <a href="/plight/index.php?project_id=<?php echo $urlProjectId; ?>&amp;label=[sprint<?php echo $i; ?>]">Sprint <?php echo $i; ?></a>
 <?php
