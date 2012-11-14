@@ -85,7 +85,7 @@ function loadDoc($output) {
 function getStories($projectId) {
   if ($projectId != null) {
 ?>
-    <table border="1" cellpadding="5" cellspacing="0" class="table-striped">
+    <table>
 <?php
     foreach (loadDoc(doCurl("http://www.pivotaltracker.com/services/v3/projects/".$projectId."/stories?filter=".((!isset($_GET['filter'])) ? ('label:[sprint1]') : ($_GET['filter'])), "GET", null))->getElementsByTagName('story') as $story) {
       $storyId = $story->getElementsByTagName('id')->item(0)->nodeValue;

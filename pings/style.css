@@ -4,13 +4,30 @@ body {
 	margin-left: 0.625em;
 	margin-right: 0.625em;
 }
-td.rejected {
-	background-color: #FF0000;
+table {
+	border-collapse: collapse;
 }
-tr.bug {
+table tr.bug {
 	font-weight: bold;
 }
-tr.started {
+table tr.started {
 	background-color: #00FF00;
+}
+table tr td {
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-bottom-width: 0.232259ex;
+	border-left-color: #000000;
+	border-left-style: solid;
+	border-left-width: 0.1em;
+	border-right-color: #000000;
+	border-right-style: solid;
+	border-right-width: 0.1em;
+	border-top-color: #000000;
+	border-top-style: solid;
+	border-top-width: 0.232259ex;
+}
+table tr td.rejected {
+	background-color: #FF0000;
 }
 
