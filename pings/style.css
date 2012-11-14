@@ -26,6 +26,10 @@ table tr td {
 	border-top-color: #000000;
 	border-top-style: solid;
 	border-top-width: 0.232259ex;
+	padding-bottom: 1ex;
+	padding-left: 0.43056em;
+	padding-right: 0.43056em;
+	padding-top: 1ex;
 }
 table tr td.rejected {
 	background-color: #FF0000;
