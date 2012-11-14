@@ -3,15 +3,14 @@ body {
 	margin-bottom: 0.625em;
 	margin-left: 0.625em;
 	margin-right: 0.625em;
-	margin-top: 0.625em;
 }
 td.rejected {
 	background-color: #FF0000;
 }
-tr.started {
-	background-color: #00FF00;
-}
 tr.bug {
 	font-weight: bold;
+}
+tr.started {
+	background-color: #00FF00;
 }
 
