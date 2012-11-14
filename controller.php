@@ -126,7 +126,6 @@ function getStoryActivity($projectId, $storyId) {
       $activityArray[$id]['initials'] = $activity->getElementsByTagName('initials')->item(0)->nodeValue;
     }
   }
-  // TODO: Fix sort method, start, finish at same time can be backward.
   sort($activityArray);
   foreach ($activityArray as $activity) {
 ?>
