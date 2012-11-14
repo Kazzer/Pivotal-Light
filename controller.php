@@ -19,8 +19,11 @@ function getProjects() {
 ?>
         </select>
       </label>
-      <input class="noscript" type="submit" value="Load" />
+      <input id="loadProject" type="submit" value="Load" />
     </form>
+    <script type="application/x-javascript">
+      document.getElementById('loadProject').style.display="none";
+    </script>
     <hr />
 <?php
   if ($urlProjectId != null) {

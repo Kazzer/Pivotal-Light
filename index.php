@@ -13,9 +13,6 @@ if (isset($_POST['logout'])) {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
   <head>
     <link rel="stylesheet" type="text/css" media="screen" href="pings/style.css" />
-    <script type="application/x-javascript">
-      document.write('<style type="text/css">form input.noscript { display: none; }</style>');
-    </script>
     <title>Pivotal Light</title>
   </head>
   <body>
