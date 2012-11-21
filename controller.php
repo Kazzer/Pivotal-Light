@@ -30,6 +30,7 @@ function getProjects() {
 ?>
     <h3><?php echo $urlProjectName; ?></h3>
     <p>
+      <a href="/plight/index.php?project_id=<?php echo $urlProjectId; ?>&amp;filter=type:bug">Bugs</a> 
 <?php
     $label = strtok(loadDoc(doCurl("http://www.pivotaltracker.com/services/v4/projects/".$urlProjectId, "GET", null))->getElementsByTagName('labels')->item(0)->nodeValue, ',');
     $count = 0;
