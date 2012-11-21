@@ -21,7 +21,7 @@ function getProjects() {
       </label>
       <input id="loadProject" type="submit" value="Load" />
     </form>
-    <script type="application/x-javascript">
+    <script type="application/javascript">
       document.getElementById('loadProject').style.display="none";
     </script>
     <hr />
