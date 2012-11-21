@@ -100,7 +100,6 @@ function getStories($projectId) {
       }
       elseif ($estimate == "chore") {
         $currentState .= " chore";
-        $estimate = "CHORE";
       }
 ?>
       <tr class="<?php echo $currentState; ?>">
