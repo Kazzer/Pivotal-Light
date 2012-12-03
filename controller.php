@@ -5,7 +5,7 @@ function getGuid() {
 }
 function getProjects() {
   $urlProjectId = ((isset($_GET['project_id'])) ? ($_GET['project_id']) : (null));
-  foreach (loadDoc(doCurl("http://www.pivotaltracker.com/services/v4/projects", "GET", null))->getElementsByTagName('project') as $project) {
+  foreach (loadDoc(doCurl("https://www.pivotaltracker.com/services/v4/projects", "GET", null))->getElementsByTagName('project') as $project) {
     $projectId = $project->getElementsByTagName('id')->item(0)->nodeValue;
     $selected = '';
     if ($projectId == $urlProjectId) {
@@ -32,7 +32,7 @@ function getProjects() {
     <p>
       <a href="/plight/index.php?project_id=<?php echo $urlProjectId; ?>&amp;filter=type:bug">Bugs</a> 
 <?php
-    $label = strtok(loadDoc(doCurl("http://www.pivotaltracker.com/services/v4/projects/".$urlProjectId, "GET", null))->getElementsByTagName('labels')->item(0)->nodeValue, ',');
+    $label = strtok(loadDoc(doCurl("https://www.pivotaltracker.com/services/v4/projects/".$urlProjectId, "GET", null))->getElementsByTagName('labels')->item(0)->nodeValue, ',');
     $count = 0;
     while ($label !== false) {
       if (strpos($label, "[sprint") !== false) {
@@ -91,7 +91,7 @@ function getStories($projectId) {
 ?>
     <table>
 <?php
-    foreach (loadDoc(doCurl("http://www.pivotaltracker.com/services/v3/projects/".$projectId."/stories?filter=".((!isset($_GET['filter'])) ? ('label:[sprint1]') : (urlencode($_GET['filter']))), "GET", null))->getElementsByTagName('story') as $story) {
+    foreach (loadDoc(doCurl("https://www.pivotaltracker.com/services/v3/projects/".$projectId."/stories?filter=".((!isset($_GET['filter'])) ? ('label:[sprint1]') : (urlencode($_GET['filter']))), "GET", null))->getElementsByTagName('story') as $story) {
       $storyId = $story->getElementsByTagName('id')->item(0)->nodeValue;
       $estimate = (($story->getElementsByTagName('estimate')->length > 0) ? ($story->getElementsByTagName('estimate')->item(0)->nodeValue) : ($story->getElementsByTagName('story_type')->item(0)->nodeValue));
       $currentState = $story->getElementsByTagName('current_state')->item(0)->nodeValue;
@@ -120,7 +120,7 @@ function getStories($projectId) {
 }
 function getStoryActivity($projectId, $storyId) {
   $activityArray = array();
-  foreach (loadDoc(doCurl("http://www.pivotaltracker.com/services/v4/projects/".$projectId."/stories/".$storyId."/activities", "GET", null))->getElementsByTagName('activity') as $activity) {
+  foreach (loadDoc(doCurl("https://www.pivotaltracker.com/services/v4/projects/".$projectId."/stories/".$storyId."/activities", "GET", null))->getElementsByTagName('activity') as $activity) {
     $currentState = (($activity->getElementsByTagName('current_state')->length > 0) ? ($activity->getElementsByTagName('current_state')->item(0)->nodeValue) : (null));
     $id = $activity->getElementsByTagName('id')->item(0)->nodeValue;
     if ($currentState != null && $currentState != '' && $currentState != "unscheduled") {
