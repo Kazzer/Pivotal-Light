@@ -42,7 +42,7 @@ function getProjects() {
     }
     for ($i = 1; $i < $count+1; $i++) {
 ?>
-      | <a href="/plight/index.php?project_id=<?php echo $urlProjectId; ?>&amp;filter=label:[sprint<?php echo $i; ?>]">Sprint <?php echo $i; ?></a>
+      | <a href="/plight/index.php?project_id=<?php echo $urlProjectId; ?>&amp;filter=label:[sprint<?php echo $i; ?>] includedone:true">Sprint <?php echo $i; ?></a>
 <?php
     }
 ?>
@@ -91,7 +91,7 @@ function getStories($projectId) {
 ?>
     <table>
 <?php
-    foreach (loadDoc(doCurl("https://www.pivotaltracker.com/services/v3/projects/".$projectId."/stories?filter=".((!isset($_GET['filter'])) ? ('label:[sprint1]') : (urlencode($_GET['filter']))), "GET", null))->getElementsByTagName('story') as $story) {
+    foreach (loadDoc(doCurl("https://www.pivotaltracker.com/services/v3/projects/".$projectId."/stories?filter=".((!isset($_GET['filter'])) ? (urlencode('label:[sprint1] includedone:true')) : (urlencode($_GET['filter']))), "GET", null))->getElementsByTagName('story') as $story) {
       $storyId = $story->getElementsByTagName('id')->item(0)->nodeValue;
       $estimate = (($story->getElementsByTagName('estimate')->length > 0) ? ($story->getElementsByTagName('estimate')->item(0)->nodeValue) : ($story->getElementsByTagName('story_type')->item(0)->nodeValue));
       $currentState = $story->getElementsByTagName('current_state')->item(0)->nodeValue;
