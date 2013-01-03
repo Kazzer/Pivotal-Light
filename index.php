@@ -43,6 +43,13 @@ if (isset($_SESSION['guid'])) {
       <label>Select project: 
         <select name="project_id" required="required" onchange="javascript:this.form.submit();">
 <?php
+  $selected = '';
+  if (!isset($_GET['project_id'])) {
+    $selected = ' selected="selected"';
+  }
+?>
+          <option value=""<?php echo $selected; ?>>Select a Project</option>
+<?php
   getProjects();
   if (isset($_GET['project_id'])) {
     getStories($_GET['project_id']);
