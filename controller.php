@@ -13,7 +13,7 @@ function getProjects() {
       $selected = ' selected="selected"';
     }
 ?>
-          <option value="<?php echo $projectId; ?>"<?php echo $selected; ?>><?php echo $project->getElementsByTagName('name')->item(0)->nodeValue; ?></option>
+          <option value="<?php echo $projectId; ?>"<?php echo $selected; ?>><?php echo '<![CDATA['.$project->getElementsByTagName('name')->item(0)->nodeValue.']]>'; ?></option>
 <?php
   }
 ?>
@@ -28,7 +28,7 @@ function getProjects() {
 <?php
   if ($urlProjectId != null) {
 ?>
-    <h3><?php echo $urlProjectName; ?></h3>
+    <h3><?php echo '<![CDATA['.$urlProjectName.']]>'; ?></h3>
     <p>
       <a href="/plight/index.php?project_id=<?php echo $urlProjectId; ?>&amp;filter=type:bug">Bugs</a> 
 <?php
@@ -105,7 +105,7 @@ function getStories($projectId) {
 ?>
       <tr class="<?php echo $currentState; ?>">
         <td><a href="<?php echo $story->getElementsByTagName('url')->item(0)->nodeValue; ?>" target="_blank"><?php echo $storyId; ?></a></td>
-        <td><?php echo str_replace(array("&", "<"), array("&amp;", "&lt;"), $story->getElementsByTagName('name')->item(0)->nodeValue); ?></td>
+        <td><?php echo '<![CDATA['.$story->getElementsByTagName('name')->item(0)->nodeValue.']]>'; ?></td>
         <td><?php echo $estimate; ?></td>
 <?php
       getStoryActivity($projectId, $storyId);
